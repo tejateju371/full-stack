@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>  
+    div{
+        height: 100px;
+        width: 300px;
+        border: 2px solid blue;
+        margin: 5px  ;
+        background-color: black;
+    }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+     <button class="anim"> animate</button>
+
+    
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+ $("button").on("click",function(){
+
+$(".box").animate({
+
+opacity:0.5,
+width:"500px",
+backgroundColor:"blue"
+
+},4000)
+
+ })
+  
+
+})
+
+
+</script>
+</body>
+</html>

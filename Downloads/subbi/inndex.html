@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .features{
+            outline: 2px solid rgb(72, 236, 86);
+            offset: 3px;
+            color: blue;
+            padding:10px;
+            font-family: cursive;
+            font-size: larger;
+            background-color: green;
+            border-radius: 12px;
+
+        }
+        .features2{
+           background-color: red;
+        }
+        .quest{
+            width: 800px;
+            height: 500px;
+            border: 2px solid blue;
+            font-size: 20px;
+            padding: 10px;
+            text-align: center;
+        }
+        .ans{
+            width: 500px;
+            height: 40px;
+            border: 1px solid black;
+            border-radius: 12px;
+            margin: 30px 45px 25px 25px;
+        }
+        #cr{
+            width: 500px;
+            height: 40px;
+            border: 1px solid black;
+            border-radius: 12px;
+            margin: 30px 45px 25px 25px;
+
+        }
+    </style>
+</head>
+<body>
+    <h1 class="h1">teju</h1>
+    <p id="p1">para</p>
+    <input type="text " placeholder="enter ur name" required>
+    <button >Clickme</button><br/><br/>
+    <div class="quest"> what is jquery?
+        <div  id="cr">one of javascript concept</div>
+        <div class="ans" value="2"> oops concept</div>
+        <div class="ans" value="3"> scripting language</div>
+        <div class="ans" value="4"> prohramming language</div>
+        <p>scrore:</p>
+    
+    </div>
+
+    
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script> let score=0;
+ $(document).ready(function(){
+$("button").on("click",function(){
+const name =$("input").val()
+console.log(name)
+if(name=="teju"){
+    $("input").addClass("features")
+
+}
+else
+$("input").addClass("features2")
+
+
+$("h1").text(name)
+
+})
+  $("input").on("keyup",function(){
+   // $("input").addClass("features")
+      
+
+
+  })
+
+ $("#cr").on("click",function(){
+  $("#cr").addClass("features")
+          .text("CORRECT ANSWER")
+          score++
+          $("p").text(`score is: ${score}`)
+
+ })
+
+ $(".ans").on("click",function(){
+    $(".ans").addClass("features2")
+    $("#cr").addClass("features")
+    $("p").text(`score is: ${score} don't worry try again bro`)
+
+
+
+ })
+ 
+
+
+ 
+
+})
+
+
+
+</script>
+</body>
+</html>

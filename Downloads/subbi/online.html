@@ -1,0 +1,56 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+<!-- Link to a CSS file here that contains the same code as on the CSS tab above -->    
+<script src="./online.js"></script>
+
+<div class="container" id="ap-proctoring-container">hello
+   <div class="ctas">
+      <button id="btn-start">Start</button>
+      <button id="btn-stop">Stop</button>
+   </div>
+   <div class="flex flex-row">
+      <div id="ap-test-proctoring-status"></div>
+      <div id="proctor-feedback"></div>
+   </div>
+</div>
+<div class="container mx-auto mt-8 max-w-5xl" id="ap-report__overview"></div>
+<div class="container mx-auto mt-8 max-w-5xl" id="ap-report-tab-container"></div>
+
+<!-- Link to a JS file here that contains the same code as on the JavaScript tab above -->
+
+<script>
+    const proctoringOptions = {
+        trackingOptions: { 
+            audio: true,
+            numHumans: true,
+            tabSwitch: true,
+            photosAtRandom: false,
+            detectMultipleScreens: true,
+            forceFullScreen: false,
+            auxiliaryDevice: false,
+            recordSession: true
+        },
+        showHowToVideo: false,  
+    };
+
+    async function init() {
+        const credentials = getCredentials();
+        const apInstance = new AutoProctor(credentials);
+        await apInstance.setup(proctoringOptions);
+        document.getElementById("btn-start").addEventListener("click", () => apInstance.start());
+        window.addEventListener("apMonitoringStarted", () => {
+            document.getElementById("btn-start").disabled = true;
+            document.getElementById("btn-stop").disabled = false;
+            document.getElementById("ap-test-proctoring-status").innerHTML = "Proctoring...";
+        })
+        document.getElementById("btn-stop").addEventListener("click", () => apInstance.stop());
+        window.addEventListener("apMonitoringStopped", async () => {
+            const reportOptions = getReportOptions();
+            apInstance.showReport(reportOptions);
+            document.getElementById("ap-proctoring-container").visibility = "hidden";
+            document.getElementById("ap-test-proctoring-status").innerHTML = "Proctoring stopped";
+        })
+    }
+
+    window.addEventListener("load", init);
+</script>
+    

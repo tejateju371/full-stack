@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+.togglebox{
+   width: 300px;
+   height: 300px;
+   margin: 10% auto;
+   border-radius: 70% 10% 20% 10% ;
+   border: 2px solid blue;
+
+}
+.red{
+
+  background-color: red;
+  color: white;
+
+}
+.green{
+    background-color: green;
+    color: black;
+}
+button{
+    margin-left: 25% ;
+}
+
+    </style>
+</head>
+<body>
+     <h1>toggle class</h1>
+
+     <div class="togglebox"></div>
+      <button class="tr">
+       turn to red
+      </button>
+      <button class="fadeout"> fademe</button>
+      <button class="fadein"> fadeIn</button>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+  $(".tr").on("click",function(){
+    $(".togglebox").addClass("red")
+
+
+  })
+  $(".fadeout").on("mouseenter",function(){
+    $(".togglebox").slideToggle(2400,function(){
+    console.log("jquery is fun")
+
+
+    })
+
+
+  })
+  //$(".fadein").on("click",function(){
+    
+    
+    
+
+   // $(".togglebox").css("background-color","blue")
+                   // .fadeIn(4000)
+
+
+ // })
+
+
+
+
+ })
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <h1>teju</h1>
+    <h2>amount</h2>
+    <form action="./inndex.html" method="post">
+
+      <input type="text" name="name"  class="name"placeholder="name"><br/><br/>
+      <input type="number" class="torla" name="email" placeholder="enter mail"><br/><br/>
+      <input  id="bu1" type="submit" value="submit"><br/><br/>
+
+
+
+                  <label for="ice-cream-choice">Choose a flavor:</label>
+<input list="ice-cream-flavors" id="ice-cream-choice" name="ice-cream-choice" />
+
+<datalist id="ice-cream-flavors">
+  <option value="Chocolate"></option>
+  <option value="Coconut"></option>
+  <option value="Mint"></option>
+  <option value="Strawberry"></option>
+  <option value="Vanilla"></option>
+</datalist>
+
+                  
+
+
+
+
+    </form>
+
+
+    
+</head>
+<body>
+ 
+    
+
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+$("form").on("submit",function(event){
+  event.preventDefault()
+
+const name=$(".name").val()
+const amt=$(".torla").val()
+
+console.log(name)
+$("h1").text(`name is:${name}`)
+$("h2").text(amt*200)
+
+$("#bu1").remove()
+     
+})
+
+
+
+
+
+})
+
+</script>
+</body>
+</html>
